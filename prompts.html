@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ChatGPTプロンプト集｜AIなんでも勉強会（初級編）</title><meta name="robots" content="noindex">
+<style>
+:root{--b:#0b4f9c;--bl:#e8f0fa;--bd:#c9d6e8;--tx:#1f2a37}
+*{box-sizing:border-box}body{margin:0;font-family:"Meiryo UI","Hiragino Sans","Noto Sans JP",sans-serif;color:var(--tx);background:#f5f8fc;line-height:1.7}
+header{background:linear-gradient(135deg,#0b4f9c,#2a7bd4);color:#fff;padding:28px 20px 22px;text-align:center}
+header h1{margin:0;font-size:1.9rem}header p{margin:6px 0 0;opacity:.95}header .thanks{margin:0 0 8px;font-size:1.05rem;font-weight:bold}
+.period{display:inline-block;margin-top:12px;background:#fff;color:var(--b);border-radius:20px;padding:4px 16px;font-weight:bold;font-size:.92rem}
+.wrap{max-width:1000px;margin:0 auto;padding:16px}
+.rule{background:#fff;border:2px solid #c0392b;border-radius:10px;padding:12px 16px;margin-bottom:14px}
+.rule b{color:#c0392b}.rule ol{margin:4px 0 0;padding-left:1.4em}
+.how,.box{background:#fff;border:1px solid var(--bd);border-radius:10px;padding:10px 16px;margin-bottom:14px;font-size:.95rem}
+h2{color:var(--b);border-left:6px solid var(--b);padding-left:10px;margin:26px 0 8px;font-size:1.3rem}
+h3{color:var(--b);margin:18px 0 6px;font-size:1.08rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.card{background:#fff;border:1px solid var(--bd);border-radius:10px;display:flex;flex-direction:column;margin-bottom:10px}
+.card .h{background:var(--bl);padding:6px 12px;font-weight:bold;border-radius:10px 10px 0 0;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.card pre{white-space:pre-wrap;font-family:inherit;margin:0;padding:10px 12px;flex:1;font-size:.95rem}
+.cp{border:none;background:var(--b);color:#fff;border-radius:6px;padding:4px 12px;cursor:pointer;font-size:.85rem;white-space:nowrap}
+.cp.ok{background:#1e8e3e}
+.no{font-size:.8rem;color:#5b6b80;margin-right:4px}
+.msg{background:#fff;border:1px solid var(--bd);border-left:6px solid var(--b);border-radius:10px;padding:14px 18px;margin-top:26px;font-size:.95rem}
+.sig{display:block;text-align:right;margin-top:8px;font-weight:bold;color:var(--b)}
+footer{text-align:center;font-size:.82rem;color:#556;padding:24px 16px 36px}
+a{color:var(--b)}
+
+.tools{position:sticky;top:0;z-index:5;background:#f5f8fc;padding:8px 0}
+#q{width:100%;padding:12px 14px;font-size:1rem;border:2px solid var(--bd);border-radius:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{border:1px solid var(--bd);background:#fff;border-radius:18px;padding:5px 12px;cursor:pointer;font-size:.9rem}
+.chip.on{background:var(--b);color:#fff;border-color:var(--b)}
+#none{display:none;text-align:center;padding:30px;color:#667}
+</style></head><body>
+<header><p class="thanks">本日は研修にご参加いただき、ありがとうございました。</p><h1>明日から使える ChatGPTプロンプト集</h1>
+<p>AIなんでも勉強会（初級編）〜ChatGPTを実際に使ってみよう〜<br>2026年12月4日（金）室蘭テクノセンター</p><div class="period">公開期間：2026年12月4日〜2027年2月3日（2か月間限定）</div></header>
+<div class="wrap">
+<p style="margin:0 0 10px"><a href="index.html">← 研修教材サイトのトップへ</a></p>
+<div class="rule"><b>⚠ 安全に使う3つの約束</b><ol>
+<li>顧客情報・個人情報・ID・パスワード・機密情報・図面などは入力しない</li>
+<li>AIの回答を鵜呑みにせず、重要なことは人が確認する（安全・品質・法令は特に）</li>
+<li>会社の利用ルールを守る</li></ol></div>
+<div class="how">📝 <b>使い方</b>：「コピー」を押して <a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a> に貼り付け、「〇〇」を自分の仕事に置き換えてください。うまくいかないときは「もっと短く」「やさしい言葉で」など追加で指示して整えましょう。全<span id="tot"></span>種類。</div>
+<div class="tools"><input id="q" type="search" placeholder="🔍 キーワードで探す（例：メール、Excel、安全、要約）"><div class="chips" id="chips"></div></div>
+<div id="list"></div><div id="none">該当するプロンプトがありません。</div>
+<div class="msg">🙏 皆さまの真剣なまなざしと、たくさんの「できた！」の声に、講師として大きな元気をいただきました。<br>
+まずは小さなことから、明日の仕事でChatGPTを試してみてください。皆さまのお仕事が、少しでも楽に、楽しくなりますように。<br>
+<span class="sig">NTT東日本　中澤 尚也</span></div>
+</div>
+<footer>※ChatGPTの機能・料金・利用制限は変更されることがあります。最新情報はOpenAI公式サイトでご確認ください。<br>
+※プロンプトはすべて一般的な例です。回答は人によって異なり、内容の正確さは保証されません。</footer>
+<script>
+const C=[{"id": "基本", "icon": "🔰", "name": "基本の型・使い方のコツ", "items": [{"t": "基本の型（4つの要素）", "p": "次の条件で〇〇を作ってください。\n【目的】\n【対象】\n【条件】\n【形式】"}, {"t": "AIに質問してもらう", "p": "〇〇を作りたいです。良いものを作るために必要な情報があれば、先に私に質問してください。"}, {"t": "役割を与える", "p": "あなたは経験豊富な〇〇の担当者です。その立場で、次の相談に答えてください。\n（相談内容）"}, {"t": "短くする", "p": "今の回答を、要点だけに絞って3行でまとめてください。"}, {"t": "やさしくする", "p": "今の回答を、専門用語を使わずに中学生にも分かる言葉で書き直してください。"}, {"t": "表にする", "p": "今の内容を、比較しやすいように表にまとめてください。"}, {"t": "箇条書きにする", "p": "今の内容を、箇条書きで整理してください。"}, {"t": "別の案を出す", "p": "今の案とは違う方向性の案を、あと3つ出してください。"}, {"t": "理由を聞く", "p": "なぜそう考えたのか、理由を教えてください。"}, {"t": "自己チェック", "p": "今の回答に、間違いや根拠の弱い部分がないか見直して、注意点を教えてください。"}, {"t": "例を出してもらう", "p": "今の説明に、具体的な例を2つ付けてください。"}, {"t": "前提を確認する", "p": "この回答は、どんな前提で作りましたか？前提が違うと結論が変わる点を教えてください。"}]}, {"id": "文章", "icon": "✍️", "name": "文章をつくる・整える", "items": [{"t": "社内お知らせ", "p": "社内向けに〇〇のお知らせ文を作ってください。\n【対象】全社員\n【条件】日時は〇月〇日〇時、場所は〇〇\n【形式】件名付き、本文200字程度"}, {"t": "会議の案内", "p": "〇〇についての会議案内を作ってください。日時・場所・目的・事前準備を入れて、150字程度でお願いします。"}, {"t": "依頼メール", "p": "取引先に〇〇をお願いするメールを作ってください。丁寧で簡潔に、件名も付けてください。"}, {"t": "お礼メール", "p": "〇〇していただいたお礼のメールを作ってください。形式的すぎず、気持ちが伝わる文章にしてください。"}, {"t": "お詫びメール", "p": "〇〇について、お客様へのお詫びメールの下書きを作ってください。言い訳がましくならないようにしてください。※事実関係は必ず自分で確認します。"}, {"t": "催促メール", "p": "〇〇の提出がまだの相手に、角が立たない確認メールを作ってください。"}, {"t": "日程調整メール", "p": "打ち合わせの日程候補を3つ提示するメールを作ってください。候補は〇月〇日〇時など。"}, {"t": "断りのメール", "p": "〇〇のお誘いを、相手に失礼のないようにお断りするメールを作ってください。"}, {"t": "文章の校正", "p": "次の文章の誤字脱字や分かりにくい表現を直してください。直した箇所も教えてください。\n（文章を貼り付け）"}, {"t": "敬語に直す", "p": "次の文章を、社外向けの丁寧な敬語に直してください。\n（文章を貼り付け）"}, {"t": "やさしい日本語", "p": "次の文章を、新人や外国人の同僚にも伝わるやさしい日本語に書き直してください。\n（文章を貼り付け）"}, {"t": "言い方を和らげる", "p": "次の文章を、相手を責めない前向きな言い方に直してください。\n（文章を貼り付け）"}, {"t": "要約する", "p": "次の文章を、3行で要約してください。\n（文章を貼り付け）"}, {"t": "タイトル案", "p": "次の内容に合うタイトル（件名）案を5つ出してください。\n（内容を貼り付け）"}, {"t": "挨拶文", "p": "〇〇の場で話す、1分間の挨拶文を作ってください。"}, {"t": "社内報の記事", "p": "〇〇の取り組みを紹介する社内報の記事を400字程度で作ってください。"}]}, {"id": "考える", "icon": "💡", "name": "考えるのを手伝ってもらう", "items": [{"t": "抜け漏れ確認", "p": "次の内容で、確認が漏れていそうな点を5つ挙げてください。\n（内容を貼り付け）"}, {"t": "読み手の疑問", "p": "この文章を読んだ人が疑問に思いそうなことを3つ挙げてください。"}, {"t": "会議の論点整理", "p": "〇〇について話し合う会議で、確認すべき論点と質問を整理してください。"}, {"t": "アイデア出し", "p": "〇〇を改善するアイデアを10個出してください。費用がかからないものから順に並べてください。"}, {"t": "メリット・デメリット", "p": "〇〇を導入する場合のメリットとデメリットを表にしてください。"}, {"t": "選択肢の比較", "p": "A案とB案で迷っています。比較する観点を挙げ、表で整理してください。最終判断は私がします。"}, {"t": "反対意見を聞く", "p": "次の提案に対して、反対する立場から意見を3つ出してください。\n（提案を貼り付け）"}, {"t": "優先順位づけ", "p": "次のやることリストを、重要度と緊急度で整理してください。\n（リストを貼り付け）"}, {"t": "原因を考える問い", "p": "〇〇という問題について、原因は断定せずに、考えるための質問を5つ作ってください。"}, {"t": "壁打ち相手", "p": "〇〇について考えをまとめたいです。私の考えを聞いて、質問を1つずつしてください。"}, {"t": "段取りを考える", "p": "〇〇を〇月までに終わらせたいです。やるべきことを順番に洗い出してください。"}]}, {"id": "安全", "icon": "🦺", "name": "現場・安全", "items": [{"t": "安全朝礼（1分）", "p": "〇〇に注意を呼びかける1分間の朝礼原稿を作ってください。話し言葉で、新人にも分かる言葉にしてください。"}, {"t": "季節の安全朝礼", "p": "冬の現場で、転倒・体調管理・声かけをテーマにした1分間の朝礼原稿を作ってください。"}, {"t": "作業前チェックリスト", "p": "〇〇作業の前に確認する一般的なチェックリストを、チェック欄付きの表で作ってください。正式な手順と照らし合わせるたたき台とします。"}, {"t": "KY活動の進め方", "p": "KY活動（危険予知活動）を初めて行う人向けに、進め方を分かりやすく説明してください。"}, {"t": "ヒヤリハットの書き方", "p": "ヒヤリハット報告を書くときのポイントと、記入例を（架空の事例で）作ってください。"}, {"t": "安全標語", "p": "〇〇をテーマにした安全標語を10案作ってください。短く覚えやすいものにしてください。"}, {"t": "安全クイズ", "p": "職場の一般的な安全ルールについて、新人向けの〇×クイズを5問作ってください。解説も付けてください。"}, {"t": "工事のお知らせ", "p": "〇〇工事を行います。期間は〇月〇日〜〇日、時間は9時〜17時です。近隣の方・施設利用者向けに、丁寧なお知らせ文を作ってください。"}, {"t": "申し送り", "p": "次の現場メモを、次の勤務者への申し送り事項として整理してください。\n（メモを貼り付け）"}, {"t": "作業日報の整理", "p": "次の作業メモを、日報の形式（作業内容・進捗・問題点・明日の予定）に整理してください。\n（メモを貼り付け）"}]}, {"id": "品質", "icon": "🔍", "name": "品質・設計・技術", "items": [{"t": "4Mで質問を作る", "p": "〇〇の不良について、原因は断定せずに、確認すべき質問を「人・設備・材料・方法」の4つの観点で2つずつ作ってください。"}, {"t": "なぜなぜ分析の手伝い", "p": "〇〇という問題について、なぜなぜ分析を進めるための問いかけを順番に出してください。答えは私が考えます。"}, {"t": "データの傾向", "p": "次のデータから気づく傾向を3つ挙げてください。根拠となる数字も示してください。\n（架空・公開可能なデータを貼り付け）"}, {"t": "専門用語の言い換え", "p": "「〇〇」という言葉を、専門知識のない新人に身近なたとえで説明してください。最後に理解を確認する質問を2つ付けてください。"}, {"t": "依頼の聞き取り項目", "p": "〇〇の製作依頼を受けたとき、最初に確認すべき項目を分類して整理してください。"}, {"t": "設計レビューの観点", "p": "〇〇の設計を確認するとき、見落としやすい一般的な観点を挙げてください。"}, {"t": "技術説明を分かりやすく", "p": "次の技術的な説明を、お客様にも分かる言葉に書き直してください。\n（説明を貼り付け）"}, {"t": "改善提案書", "p": "〇〇の改善提案を、「現状・問題点・改善案・期待される効果」の形でまとめてください。"}, {"t": "品質教育の資料", "p": "「なぜ小さな部品でも品質管理が大切か」を新人向けに説明する文章を作ってください。"}, {"t": "作業標準のたたき台", "p": "〇〇作業の手順書の構成案（見出し）を作ってください。内容は現場で確認して埋めます。"}]}, {"id": "総務", "icon": "🗂️", "name": "総務・事務・Excel", "items": [{"t": "Excel関数を聞く", "p": "Excelで〇〇をしたいです。使う関数と手順を、初心者向けに教えてください。"}, {"t": "関数の意味を聞く", "p": "次のExcelの数式が何をしているか、分かりやすく説明してください。\n（数式を貼り付け）"}, {"t": "エラーを相談", "p": "Excelで〇〇というエラーが出ました。考えられる原因と直し方を教えてください。"}, {"t": "集計表の設計", "p": "〇〇を管理する表を作りたいです。どんな列があると便利か提案してください。"}, {"t": "手順書を作る", "p": "次の作業手順を、初心者でも迷わない番号付きの手順書にしてください。\n（手順を貼り付け）"}, {"t": "よくある質問", "p": "社内からよく来る〇〇についての質問と回答例を5つ作ってください。"}, {"t": "アンケート作成", "p": "〇〇について社員アンケートを取りたいです。質問を8問程度作ってください。"}, {"t": "アンケート結果の整理", "p": "次のアンケートの自由記述を、内容ごとに分類して整理してください。\n（架空・匿名化した記述を貼り付け）"}, {"t": "研修の案内", "p": "〇〇研修の受講案内を作ってください。目的・日時・対象・申込方法を入れてください。"}, {"t": "社内ルールの説明", "p": "次の社内ルールを、新入社員向けに分かりやすく説明してください。\n（ルールを貼り付け）"}, {"t": "パソコン操作の質問", "p": "Windowsで〇〇をする方法を、手順付きで教えてください。"}, {"t": "ファイル名のルール", "p": "社内でファイル名の付け方を統一したいです。分かりやすいルールの例を作ってください。"}]}, {"id": "経営", "icon": "📈", "name": "経営・管理職", "items": [{"t": "考えを整理する", "p": "〇〇について悩んでいます。考えるべき観点を整理し、選択肢ごとの良い点と注意点を表にしてください。"}, {"t": "数字の見方", "p": "次の月別の売上と経費から、気づくことを挙げてください。断定せず、確認すべき点も挙げてください。\n（架空・公開可能な数字を貼り付け）"}, {"t": "人材育成計画", "p": "新入社員が3か月で仕事に慣れるための教育テーマを、月ごとに整理してください。"}, {"t": "人手不足の対策", "p": "人手不足の中小企業が取り組める業務効率化のアイデアを10個出してください。"}, {"t": "報告の要約", "p": "次の報告を、上司向けに3行で要約してください。\n（報告を貼り付け）"}, {"t": "方針の文章化", "p": "今年の会社の方針を、社員に伝わる言葉で300字程度にまとめてください。伝えたいことは〇〇です。"}, {"t": "面談の準備", "p": "部下との1on1面談で使える、話を引き出す質問を10個作ってください。"}, {"t": "会社紹介文", "p": "当社は〇〇を得意とする会社です。取引先向けの会社紹介文を150字で3案作ってください。誇張はしないでください。"}, {"t": "採用の仕事紹介", "p": "〇〇の仕事の魅力を、高校生に伝わる言葉で200字程度で紹介してください。"}, {"t": "AI利用ルールのたたき台", "p": "中小企業で生成AIを使うときの社内ルールのたたき台を作ってください。入力禁止の情報や確認の手順を含めてください。"}]}, {"id": "保全", "icon": "🛠️", "name": "設備保全・点検", "items": [{"t": "点検報告書", "p": "次の点検記録をもとに、「概要」「要観察の設備」「対応が必要な事項」「次回の確認事項」に分けて報告書を作ってください。\n（記録を貼り付け）"}, {"t": "引き継ぎ項目", "p": "担当者が交代するときに、引き継ぎで確認すべき項目を整理してください。"}, {"t": "点検表のたたき台", "p": "〇〇設備の日常点検表の項目例を作ってください。正式な点検基準と照らし合わせて使います。"}, {"t": "予防保全の説明", "p": "「予防保全」と「事後保全」の違いを、新人向けに身近なたとえで説明してください。"}, {"t": "報告書への質問", "p": "次の報告書を読んで、担当者に確認すべき質問を5つ挙げてください。\n（報告書を貼り付け）"}, {"t": "記録の書き方", "p": "点検記録を誰が読んでも分かるように書くためのコツを教えてください。"}]}, {"id": "学ぶ", "icon": "📚", "name": "学ぶ・教える", "items": [{"t": "用語を調べる", "p": "「〇〇」とは何ですか？初心者向けに、例を挙げて説明してください。"}, {"t": "練習問題", "p": "〇〇について、理解度を確認する問題を5問作ってください。答えと解説は最後にまとめてください。"}, {"t": "資格の勉強", "p": "〇〇の資格の勉強を始めます。学習計画を3か月分立ててください。※試験情報は公式サイトで確認します。"}, {"t": "教え方の工夫", "p": "〇〇を新人に教えるとき、つまずきやすい点と教え方のコツを教えてください。"}, {"t": "研修の構成", "p": "〇〇をテーマにした60分の社内研修の構成案を作ってください。"}, {"t": "クイズ形式にする", "p": "次の内容を、楽しく覚えられる3択クイズにしてください。\n（内容を貼り付け）"}]}, {"id": "画像", "icon": "🎨", "name": "画像・その他", "items": [{"t": "ポスター作成", "p": "〇〇を呼びかけるポスターを作ってください。明るいイラスト風で、見出しは「〇〇」にしてください。"}, {"t": "部分修正", "p": "今の画像の〇〇だけを△△に変更してください。ほかは変えないでください。"}, {"t": "写真の文字起こし", "p": "この写真のメモを文字起こししてください。読めない部分は［？］としてください。"}, {"t": "写真から議事録", "p": "この手書きメモを議事録にしてください。書かれていないことは補わず、「記載なし」としてください。"}, {"t": "PDFに質問", "p": "添付したPDFの内容だけを根拠に答えてください。書かれていないことは「記載なし」とし、根拠のページ番号を付けてください。\n質問：〇〇"}, {"t": "イベント企画", "p": "社内の〇〇イベントの企画案を3つ出してください。準備するものと当日の流れも付けてください。"}]}];let cur="all";
+const $=s=>document.querySelector(s);
+$("#tot").textContent=C.reduce((a,c)=>a+c.items.length,0);
+const chips=$("#chips");
+[{id:"all",icon:"✨",name:"すべて"},...C].forEach(c=>{const b=document.createElement("button");b.className="chip"+(c.id==="all"?" on":"");b.textContent=c.icon+" "+c.name;b.onclick=()=>{cur=c.id;document.querySelectorAll(".chip").forEach(x=>x.classList.remove("on"));b.classList.add("on");draw()};chips.appendChild(b)});
+function esc(s){return s.replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[m]))}
+function draw(){const q=$("#q").value.trim().toLowerCase();let h="",n=0,no=0;
+C.forEach(c=>{let cards="";c.items.forEach(it=>{no++;if(cur!=="all"&&cur!==c.id)return;
+if(q&&!(it.t+it.p+c.name).toLowerCase().includes(q))return;n++;
+cards+=`<div class="card"><div class="h"><span><span class="no">No.${no}</span>${esc(it.t)}</span><button class="cp" data-p="${encodeURIComponent(it.p)}">コピー</button></div><pre>${esc(it.p)}</pre></div>`});
+if(cards)h+=`<h2>${c.icon} ${c.name}</h2><div class="grid">${cards}</div>`});
+$("#list").innerHTML=h;$("#none").style.display=n?"none":"block"}
+document.addEventListener("click",e=>{const b=e.target.closest(".cp");if(!b)return;const t=decodeURIComponent(b.dataset.p);
+const done=()=>{b.textContent="コピーしました";b.classList.add("ok");setTimeout(()=>{b.textContent="コピー";b.classList.remove("ok")},1500)};
+if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done)}else{const a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();document.execCommand("copy");a.remove();done()}});
+$("#q").addEventListener("input",draw);draw();
+</script></body></html>
